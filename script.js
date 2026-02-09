@@ -460,7 +460,7 @@ function sendViaZalo() {
     // Bước 2: Nhấn "Chia sẻ" → "Copy link"
     // Bước 3: Dán link vào đây (bỏ dấu // ở đầu dòng)
     
-    const url = 'https://zalo.me/g/zwnzqy270';  // ← THAY BẰNG LINK NHÓM CỦA BẠN
+    const url = 'https://zalo.me/g/gfvfgn372';  // ← THAY BẰNG LINK NHÓM CỦA BẠN
     
     // ========================================
     

@@ -15,7 +15,7 @@ const menuData = {
         { id: 8, name: "Sinh tố Sầu riêng", price: 25000 },
         { id: 9, name: "Sinh tố Mít", price: 20000 },
         { id: 10, name: "Sinh tố Dâu", price: 20000 },
-        { id: 11, name: "Sinh tố Măng cầu", price: 20000 },
+        { id: 11, name: "Sinh tố Mãng cầu", price: 20000 },
         { id: 12, name: "Sinh tố Kiwi", price: 20000 }
     ],
     "TRÀ TRÁI CÂY": [
@@ -24,7 +24,7 @@ const menuData = {
         { id: 15, name: "Trà Kiwi", price: 17000 },
         { id: 16, name: "Trà chanh dây hạt đác", price: 20000 },
         { id: 17, name: "Trà dâu tằm hạt đác", price: 20000 },
-        { id: 18, name: "Trà măng cầu", price: 20000 },
+        { id: 18, name: "Trà mãng cầu", price: 20000 },
         { id: 19, name: "Trà chanh Thái xanh", price: 17000 },
         { id: 20, name: "Trà dưa lưới", price: 17000 },
         { id: 21, name: "Trà dâu", price: 17000 },

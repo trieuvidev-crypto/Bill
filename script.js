@@ -41,7 +41,7 @@ const menuData = {
         { id: 30, name: "Trà sữa socola", price: 20000 }
     ],
     "ĂN VẶT": [
-        { id: 31, name: "Bánh tráng trộn", price: 15000 },
+        { id: 31, name: "Bánh tráng trộn", price: 20000 },
         { id: 32, name: "Bò viên chiên", price: 15000 },
         { id: 33, name: "Cá viên chiên", price: 15000 },
         { id: 34, name: "Trái cây ly", price: 10000 },

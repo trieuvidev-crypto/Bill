@@ -411,15 +411,32 @@ function sendViaZalo() {
     const billText = generateBillText();
     if (!billText) return;
     
-    const phone = '0984771687';
-    const url = `https://zalo.me/${phone}`;
+    // ========================================
+    // CẤU HÌNH GỬI ZALO - CHỌN 1 TRONG 2 CÁCH
+    // ========================================
+    
+    // CÁCH 1: GỬI CHO CÁ NHÂN (mặc định)
+    // const phone = '0984771687';
+    // const url = `https://zalo.me/${phone}`;
+    
+    // CÁCH 2: GỬI VÀO NHÓM ZALO (khuyên dùng)
+    // Bước 1: Vào nhóm Zalo trên điện thoại/máy tính
+    // Bước 2: Nhấn "Chia sẻ" → "Copy link"
+    // Bước 3: Dán link vào đây (bỏ dấu // ở đầu dòng)
+    
+    const url = 'https://zalo.me/g/zwnzqy270';  // ← THAY BẰNG LINK NHÓM CỦA BẠN
+    
+    // ========================================
+    
+    // Mở Zalo
     window.open(url, '_blank');
     
-    // Copy bill to clipboard
+    // Copy bill vào clipboard để dán
     navigator.clipboard.writeText(billText).then(() => {
-        alert('Đã copy hóa đơn vào clipboard! Dán vào Zalo để gửi.');
+        alert('✅ Đã copy hóa đơn!\n📱 Dán (Ctrl+V) vào nhóm Zalo để gửi.');
     }).catch(() => {
-        console.log('Không thể copy tự động');
+        // Nếu không copy được tự động, hiển thị bill
+        prompt('Copy nội dung này và dán vào Zalo:', billText);
     });
 }
 

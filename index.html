@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Sang - POS System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_H05hCy2QKvp_veBI4afQlHi-BCaisf0ctbCAYG7FSYeF5QlALV0RQiFlE9KKWiYZ3Pw5vf_PCiFOg3UTAqru81cJ4_kv6QRlLQK1XIXz2tczerxysC71KwZQ9ofdW676iE68ZxJMWzK19QiPZ9W_qrOQER7J_5x6GqCkD5I2KXBDjHEo4N0QvzbPViunGJy5eTipyDESjgmyxF6KiczX52VkmvP0HxyTKSmTgdTFh-srgCSsyx3oW8Utk6jhBWGQrKv_Ab4WZs0RQ2DPPbo8kBGrmoQj5X9uScw3yZBD2L4ikqWk7BMOI7Bahv9KvD99n-6LBDEZiPD0k2EU4LDu4ygoAW2JubgT_6jE1qWnTGE8ubCm8MrVUTTRImMwR0VGEiczmZjmKUtTp67mfxsNdvBFOVciP5u5PcYutIsnZhk691HKEivXxRr4CfDSjDYjkzPRonjoFrGiY_KTc4UrGIbkLYxr3XwfiAJYZ9BGFJF4-VYrxkcLzxtx9DcpostKckQ5ygxvpibVbn37YczUg1k7NAbk6z3gc4H4PqzFpmq_yihsHvIECcaKt8xtjCN_qA_i5xRA5a4uZk6OhZRhIYKI9ssmeRWNZAZubA-KHKnOoYWFidX-XMjSdtowM274Y_R80NHQHy12h5PNM-rFKtxwgcuWijTFlETx7ik_oZG_2vS-AzuBbuip8D48exXrcNsYCuO0Az1YAtohqpCOUHxqSwqC4l9x_KsswQl8-932uNQ47z6iQOvmhHqV728bGCvfhwsCuBOEjvPKttgNwH8Nfukvd9pQ7aZc92iqTUAtXYxMkVdFvpslxwQAtgIC_GGT6pjAe5awTvKBjmVUidZZfpsc28NJ2Wb7zeWy-U5en8rX-bvJs3j3fzQj-KsnjRcU2Uj6rWhZ24PYV3-9aPXowb3HPbGVnICDYm-wskm2vqoMd7C7UawPmfV6mi-ejXZnOtSJQTED4XsTGhW3m91ncT6jbulQCklW18iKdXqNlIkqtRZOhiBp3L75Tfs8yv3HccSqhbrneqCD5uw5ErWcML6IMw3cKFlLy-fOg6o4SKnbr7nMfcu23ZB3L4mjL8nTAE_sEGL56JOa4dz2jJpOwqilwSm1J6QN9cJpY73TwrbzB7khgZ_Wo7WnDeQ8VeUg-MsomCNJsiBZR254OihTp8yiHuJ833JwBggGJcvsLH9aOECFvW_qGPmsJ3md3GSCsBh7Paz0Ofq8BhFkUhLUVnEVtEbmMSPYXL0iT-Bvt_TTkNk4fVnJFVQH2dvhtqvB5BgWEa47DD6BjlHPra-TVA5GWcR67bK_89XygqxBJ4uk8_5oRlxHapsIvRzXJDCJojWi0Mr-potLS8VFikG7a91Wh925WRyLQ=w523-h390-p-k-nu?auditContext=thumbnail" alt="Logo" class="logo" id="logoImg">
+        <h1 class="brand-name">COFFEE SANG</h1>
+    </div>
+    <div class="header-info">
+        <span class="date-time" id="datetime"></span>
+        <button class="btn-manage-header" id="btnManage">&#9881; Quản lý món</button>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- MENU PANEL -->
+    <div class="menu-panel">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm món..." autocomplete="off">
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="menu-items" id="menuItems"></div>
+    </div>
+
+    <!-- BILL PANEL -->
+    <div class="bill-panel">
+        <div class="bill-header">
+            <h2>HÓA ĐƠN</h2>
+            <button class="btn-clear-all" id="btnClearAll">Xóa tất cả</button>
+        </div>
+        <div class="bill-items" id="billItems">
+            <div class="empty-bill">
+                <div class="empty-icon">☕</div>
+                <p>Chưa có món nào</p>
+                <small>Chọn món từ menu bên trái</small>
+            </div>
+        </div>
+        <div class="bill-summary">
+            <div class="summary-row">
+                <span>Số lượng món:</span>
+                <span id="totalItems">0</span>
+            </div>
+            <div class="summary-row total-row">
+                <span>TỔNG TIỀN:</span>
+                <span id="totalPrice">0đ</span>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-action btn-payment" id="btnPayment">💰 THANH TOÁN</button>
+            <button class="btn-action btn-qr" id="btnQR">📷 QR THANH TOÁN</button>
+            <button class="btn-action btn-copy" id="btnCopy">📋 SAO CHÉP ĐƠN</button>
+           <button class="btn-action btn-sms" id="btnSMS">💬 Gửi SMS</button>
+            <button class="btn-action btn-whatsapp" id="btnWhatsApp">📱 WhatsApp</button>
+            <button class="btn-action btn-zalo" id="btnZalo">🔵 Zalo</button> 
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© Team CoffeeSang</p>
+</footer>
+
+<!-- MODAL: Thanh toán thành công -->
+<div class="modal" id="paymentModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>✅ THANH TOÁN THÀNH CÔNG</h2>
+        </div>
+        <div class="modal-body">
+            <div class="success-icon">🎉</div>
+            <p class="success-message">Đã hoàn tất thanh toán</p>
+            <div class="payment-total">
+                <span>Tổng tiền:</span>
+                <span id="modalTotalPrice"></span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-modal" id="btnCloseModal">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: QR thanh toán -->
+<div class="modal" id="qrModal">
+    <div class="modal-content qr-modal-content">
+        <div class="modal-header qr-modal-header">
+            <h2>📷 THANH TOÁN CHUYỂN KHOẢN</h2>
+            <button class="btn-close-x" id="btnCloseQR">✕</button>
+        </div>
+        <div class="qr-modal-body">
+            <div class="bank-info">
+                <div class="bank-logo-row">
+                    <div class="bank-badge">AGR</div>
+                    <div class="bank-name-block">
+                        <span class="bank-label">Ngân hàng</span>
+                        <span class="bank-name">AGRIBANK</span>
+                    </div>
+                </div>
+                <div class="account-rows">
+                    <div class="account-row">
+                        <span class="acc-label">Số tài khoản</span>
+                        <span class="acc-value">7400215025420</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="acc-label">Chủ tài khoản</span>
+                        <span class="acc-value owner-name">NGUYEN THANH SANG</span>
+                    </div>
+                    <div class="account-row highlight-row">
+                        <span class="acc-label">Số tiền</span>
+                        <span class="acc-value total-amount" id="qrTotalAmount">0đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-wrapper">
+                <div class="qr-loading" id="qrLoading">
+                    <div class="spinner"></div>
+                    <p>Đang tạo mã QR...</p>
+                </div>
+                <img id="qrImage" class="qr-image" alt="QR" style="display:none;"
+                     onload="document.getElementById('qrLoading').style.display='none';this.style.display='block';"
+                     onerror="document.getElementById('qrLoading').innerHTML='<p style=color:#e53935>Không tải được QR. Chuyển khoản thủ công.</p>'">
+                <p class="qr-hint">Mở <strong>app ngân hàng</strong> → Quét mã → Xác nhận</p>
+            </div>
+            <div class="transfer-note">
+                <span class="note-label">Nội dung CK:</span>
+                <span class="note-value" id="transferContent">CoffeeSang</span>
+            </div>
+        </div>
+        <div class="qr-modal-footer">
+            <button class="btn-modal btn-confirm-paid" id="btnConfirmPaid">✅ Đã chuyển khoản xong</button>
+            <button class="btn-modal btn-close-qr-secondary" id="btnCloseQR2">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: Quản lý món -->
+<div class="modal" id="manageModal">
+    <div class="modal-content manage-modal-content">
+        <div class="manage-modal-header">
+            <h2>⚙️ QUẢN LÝ THỰC ĐƠN</h2>
+            <button class="btn-close-x" id="btnCloseManage">✕</button>
+        </div>
+        <div class="manage-tabs">
+            <button class="manage-tab active" data-tab="edit">✏️ Sửa / Xóa</button>
+            <button class="manage-tab" data-tab="add">➕ Thêm món</button>
+            <button class="manage-tab" data-tab="category">📂 Danh mục</button>
+        </div>
+
+        <!-- Tab sửa -->
+        <div class="manage-tab-content active" id="tabEdit">
+            <div class="manage-filter-row">
+                <select id="filterCategory" class="manage-select">
+                    <option value="">-- Tất cả danh mục --</option>
+                </select>
+                <input type="text" id="filterSearch" class="manage-input" placeholder="Tìm tên món...">
+            </div>
+            <div class="manage-count" id="editCount"></div>
+            <div class="manage-item-list" id="editItemList">
+                <div class="manage-empty">Danh sách món hiển thị tại đây</div>
+            </div>
+        </div>
+
+        <!-- Tab thêm -->
+        <div class="manage-tab-content" id="tabAdd">
+            <div class="manage-form">
+                <div class="form-group">
+                    <label>Danh mục <span class="required">*</span></label>
+                    <select id="addCategory" class="manage-select">
+                        <option value="">-- Chọn danh mục --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tên món <span class="required">*</span></label>
+                    <input type="text" id="addName" class="manage-input" placeholder="Vd: Cà phê dừa">
+                </div>
+                <div class="form-group">
+                    <label>Giá tiền (đ) <span class="required">*</span></label>
+                    <input type="number" id="addPrice" class="manage-input" placeholder="Vd: 25000" min="0" step="1000">
+                </div>
+                <button class="btn-manage-action btn-add-item" id="btnAddItem">➕ Thêm vào menu</button>
+                <div class="manage-msg" id="addMsg"></div>
+            </div>
+        </div>
+
+        <!-- Tab danh mục -->
+        <div class="manage-tab-content" id="tabCategory">
+            <div class="manage-form">
+                <div class="form-group">
+                    <label>Tên danh mục mới <span class="required">*</span></label>
+                    <input type="text" id="newCategoryName" class="manage-input" placeholder="Vd: NƯỚC ÉP">
+                </div>
+                <button class="btn-manage-action btn-add-category" id="btnAddCategory">📂 Tạo danh mục</button>
+                <div class="manage-msg" id="categoryMsg"></div>
+                <p class="manage-category-list-label">Danh mục hiện có:</p>
+                <div class="manage-category-chips" id="categoryChips"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP: Sửa từng món -->
+<div class="inline-edit-overlay" id="inlineEditOverlay">
+    <div class="inline-edit-box">
+        <div class="inline-edit-header">
+            <h3 id="inlineEditTitle">Sửa món</h3>
+            <button class="btn-close-x" id="btnCloseInlineEdit">✕</button>
+        </div>
+        <div class="form-group">
+            <label>Tên món</label>
+            <input type="text" id="inlineEditName" class="manage-input">
+        </div>
+        <div class="form-group">
+            <label>Giá tiền (đ)</label>
+            <input type="number" id="inlineEditPrice" class="manage-input" min="0" step="1000">
+        </div>
+        <div class="inline-edit-actions">
+            <button class="btn-manage-action btn-save-edit" id="btnSaveEdit">💾 Lưu thay đổi</button>
+            <button class="btn-manage-action btn-delete-item" id="btnDeleteItem">🗑️ Xóa món</button>
+        </div>
+        <div class="manage-msg" id="editMsg"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
